@@ -45,10 +45,16 @@ ul li {
   flex-direction: column;
   gap: 20px;
   padding: 25px;
+  font-family: "Italiana", sans-serif;
+  font-weight: bold;
+  letter-spacing: 1px;
+  font-style: normal;
+  border-radius: 6px;
+  box-shadow: 0 0 5px 1px grey;
 }
 .fa-filter {
   position: absolute;
-  right: 0;
+  right: 15px;
 }
 
 .inputSpics {
@@ -81,6 +87,61 @@ input[type="range"]::-webkit-slider-thumb {
   margin-top: -8.5px;
 }
 
+.inputField {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.inputField input {
+  appearance: none;
+  -webkit-appearance: none;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  font-size: 1rem;
+  border: 0.1rem solid red;
+  border-radius: 0.5rem;
+}
+input[type="checkbox"]::before {
+  content: "";
+  width: 20px;
+  height: 20px;
+  clip-path: polygon(
+    17% 54%,
+    28% 43%,
+    38% 54%,
+    70% 22%,
+    81% 33%,
+    38% 75%,
+    17% 54%
+  );
+  transform: scale(0);
+  background-color: red;
+}
+input[type="checkbox"]:checked::before {
+  transform: scale(1);
+}
+
+.filterCard button {
+  height: 40px;
+  background-color: #63391f;
+  color: white;
+  font-family: "Italiana", sans-serif;
+  font-weight: bold;
+  letter-spacing: 3px;
+  font-style: normal;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.filterCard button:hover {
+    background-color: #b16d43;
+    box-shadow: 0 0 10px 1px #b16d43;
+}
+
 .cardList {
   display: flex;
   justify-content: center;
@@ -91,11 +152,42 @@ input[type="range"]::-webkit-slider-thumb {
 .card {
   width: 250px;
   height: 370px;
-  box-shadow: 0 0 10px 1px grey;
+  box-shadow: 0 0 10px 1px rgb(102, 99, 99);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: relative;
+  border-radius: 5px;
+  overflow: hidden;
+  font-family: "Fresca", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .card .imgArea {
   background-color: grey;
+  position: relative;
+}
+
+.card .imgArea p {
+    position: absolute;
+    bottom: 0;
+    background-color: red;
+    padding: 4px 8px;
+    border-top-right-radius: 10px;
+    color: white;
+}
+
+.card .imgArea span {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #63391F;
+    color: white;
+    padding: 5px 10px;
+    border-bottom-left-radius: 15px;
+    box-shadow: -1px 1px 4px 1px black;
+    
 }
 
 .card img {
@@ -105,7 +197,47 @@ input[type="range"]::-webkit-slider-thumb {
   object-fit: cover;
   margin: 0 auto;
 }
+.card .info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    
+    
+}
 
 .card h2 {
   text-align: center;
+}
+
+.card .specList {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.card .btns {
+    position: absolute;
+    bottom: 10px;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.card .btns button {
+    padding: 10px 10px;
+    cursor: pointer;
+    background-color: #63391f;
+    color: white;
+    border: none;
+    border-radius: 7px;
+    transition: 0.3s;
+    font-family: "Fresca", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.card .btns button:hover {
+    background-color: #b16d43;
+    box-shadow: 0 0 10px 1px #b16d43;
 }

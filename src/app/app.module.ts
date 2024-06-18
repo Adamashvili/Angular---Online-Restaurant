@@ -8,6 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { CartComponent } from './cart/cart.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductsComponent } from './products/products.component';
+import { DirectDirective } from './direct.directive';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { ProductsComponent } from './products/products.component';
     NavbarComponent,
     HomeComponent,
     CartComponent,
-    ProductsComponent
+    ProductsComponent,
+    DirectDirective
   ],
   imports: [
     BrowserModule,
