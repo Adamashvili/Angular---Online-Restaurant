@@ -1,0 +1,63 @@
+<article class="container">
+  <h1>Categories</h1>
+  <article>
+    <ul>
+      <li class="active">All</li>
+      <li *ngFor="let items of categories">{{ items.name }}</li>
+    </ul>
+  </article>
+</article>
+
+<section class="container mainArea">
+  <div class="left">
+    <div class="filterCard">
+      <p>Filter</p>
+      <i class="fa-solid fa-filter"></i>
+      <div class="inputSpics">
+        <p>Spiciness: <span>Not Chosen</span></p>
+        <input type="range" min="-1" max="4" step="1">
+      </div>
+      <div class="inputField">
+         <input type="checkbox" name="" id="nuts">
+         <label for="nuts">No Nuts</label>
+      </div>
+      <div class="inputField">
+        <input type="checkbox" name="" id="vegeterian">
+        <label for="vegeterian">Vegeterian Only</label>
+     </div>
+     <button>RESET</button>
+     <button>APPLY FILTER</button>
+    </div>
+  </div>
+
+  <div class="right">
+    <div class="cardList">
+      <div class="card" *ngFor="let items of foodList">
+        <div class="imgArea">
+          <img [src]="items.image" alt="" />
+        </div>
+        <div class="info">
+          <h2>{{ items.name }}</h2>
+          <div class="specs">
+            <div class="specList">
+              <p>
+                <i
+                  class="fa-solid fa-{{
+                    items.vegeterian ? 'circle-check' : 'x'
+                  }}"
+                ></i>
+                Vegeterian
+              </p>
+              <p>
+                <i
+                  class="fa-solid fa-{{ items.nuts ? 'circle-check' : 'x' }}"
+                ></i>
+                Nuts
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,111 @@
+article h1 {
+  text-align: center;
+  margin: 20px 0;
+  font-family: "Playwrite US Modern", cursive;
+  font-optical-sizing: auto;
+  font-weight: bold;
+  font-style: normal;
+}
+
+article ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  gap: 30px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #63391f;
+}
+
+ul li {
+  padding: 10px;
+  cursor: pointer;
+  font-family: "Playwrite US Modern", cursive;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.active {
+  background-color: #63391f;
+  color: white;
+  border-radius: 6px;
+}
+
+.mainArea {
+  margin: 20px auto;
+  display: flex;
+  gap: 15px;
+}
+
+.filterCard {
+  position: relative;
+  width: 250px;
+  background-color: #dbcccc;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 25px;
+}
+.fa-filter {
+  position: absolute;
+  right: 0;
+}
+
+.inputSpics {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.inputSpics input {
+  width: 100%;
+  appearance: none;
+}
+
+.inputSpics input[type="range"]::-webkit-slider-runnable-track {
+  background-color: #63391f;
+  border-radius: 20px;
+  height: 5px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  box-shadow: 1px 1px 1px #000000;
+  border: 2px solid #000000;
+  height: 20px;
+  width: 5px;
+  border-radius: 5px;
+  background: #ffffff;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -8.5px;
+}
+
+.cardList {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.card {
+  width: 250px;
+  height: 370px;
+  box-shadow: 0 0 10px 1px grey;
+}
+
+.card .imgArea {
+  background-color: grey;
+}
+
+.card img {
+  display: block;
+  width: 80%;
+  height: 200px;
+  object-fit: cover;
+  margin: 0 auto;
+}
+
+.card h2 {
+  text-align: center;
+}
