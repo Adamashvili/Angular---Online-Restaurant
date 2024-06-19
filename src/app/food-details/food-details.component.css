@@ -1,0 +1,109 @@
+.details {
+    height: 100vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.left {
+    position: relative;
+}
+
+.left button {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 8px 12px;
+    background-color: #63391f;
+    color: white;
+    font-family: "Italiana", sans-serif;
+    font-weight: bold;
+    letter-spacing: 3px;
+    font-style: normal;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.left button:hover {
+    background-color: #b16d43;
+    box-shadow: 0 0 10px 1px #b16d43;
+}
+
+
+
+.info {
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 15px;
+    
+}
+
+.info h1 {
+    font-family: "Fondamento", cursive;
+  font-weight: bold;
+  font-style: normal;
+  font-size: 30px;
+}
+
+.info p, input {
+    font-family: "Satisfy", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 19px;
+}
+
+.info p::first-letter {
+    font-size: 43px;
+}
+.specList {
+    display: flex;
+    gap: 30px;
+}
+
+.addcart {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.addcart .field {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    
+}
+
+.field input {
+    width: 40px;
+    height: 30px;
+    text-align: center;
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid black;
+    outline: none;
+}
+
+.addcart button {
+    padding: 4px 12px;
+    background-color: #63391f;
+    color: white;
+    font-family: "Italiana", sans-serif;
+    font-weight: bold;
+    letter-spacing: 3px;
+    font-style: normal;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .addcart button:hover {
+      background-color: #b16d43;
+      box-shadow: 0 0 10px 1px #b16d43;
+  }

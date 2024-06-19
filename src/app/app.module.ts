@@ -11,6 +11,7 @@ import { ProductsComponent } from './products/products.component';
 import { DirectDirective } from './direct.directive';
 import { FilterComponent } from './filter/filter.component';
 import { FormsModule } from '@angular/forms';
+import { FoodDetailsComponent } from './food-details/food-details.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { FormsModule } from '@angular/forms';
     CartComponent,
     ProductsComponent,
     DirectDirective,
-    FilterComponent
+    FilterComponent,
+    FoodDetailsComponent
   ],
   imports: [
     BrowserModule,

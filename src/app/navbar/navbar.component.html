@@ -1,7 +1,7 @@
 <nav navOpacity >
-    <h1>Online Restaurant</h1>
+    <h1 routerLink="/">Online Restaurant</h1>
     <ul>
-        <li>Home</li>
-        <li>Cart <span>0</span></li>
+        <li routerLink="/" routerLinkActive="activePage" [routerLinkActiveOptions]="{exact: true}">Home</li>
+        <li routerLink="/cart" routerLinkActive="activePage">Cart <span>0</span></li>
     </ul>
 </nav>

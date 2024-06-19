@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-products',
@@ -7,7 +8,8 @@ import { ApiService } from '../api.service';
   styleUrl: './products.component.css',
 })
 export class ProductsComponent implements OnInit {
-  constructor(private service: ApiService) {}
+
+  constructor(private service: ApiService, public route: Router) {}
   ngOnInit(): void {
     this.showCategories();
     this.showAllProducts()
@@ -17,7 +19,7 @@ export class ProductsComponent implements OnInit {
   public foodList: any;
   public activeCategory: number = 0
   public isPopuped: boolean = false
-  public itemQuantity!: string;
+  public itemQuantity: string = "1";
   public dataToPost:any;
 
   showCategories() {
@@ -74,6 +76,10 @@ export class ProductsComponent implements OnInit {
 
   closeModal(){
     this.isPopuped = false
-    this.itemQuantity = "";
+    this.itemQuantity = "1";
   }
+
+  gotoDetails(item: any) {
+      this.route.navigate(["/foodDetails"], {queryParams: item})
+    }
 }
