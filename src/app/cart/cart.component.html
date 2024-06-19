@@ -1,1 +1,24 @@
-<p>cart works!</p>
+<section>
+    <div class="banner">
+        <h1>Fast And Efficient, Online Ordering You Must Try.</h1>
+    </div>
+</section>
+
+<section class="container">
+    <h1>Cart</h1>
+    <table>
+        <tr>
+            <th colspan="2">Product</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Total</th>
+        </tr>
+        <tr *ngFor="let items of cartList">
+            <td><img [src]="items.product.image" alt=""></td>
+            <td>{{items.product.name}}</td>
+            <td>{{items.quantity}}</td>
+            <td>{{items.product.price | currency}}</td>
+            <td>{{(items.product.price * items.quantity) | currency}}</td>
+        </tr>
+    </table>
+</section>

@@ -1,0 +1,28 @@
+.banner {
+    height: 400px;
+    background-image: url("../../assets/banner.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .banner h1 {
+    color: white;
+    font-family: "Playwrite FR Trad", cursive;
+    font-optical-sizing: auto;
+    font-weight: bold;
+    font-style: normal;
+    font-size: 28px;
+  }
+
+  section h1 {
+    text-align: center;
+    margin: 30px auto;
+  }
+
+  table img {
+    width: 50px;
+  }
+  
