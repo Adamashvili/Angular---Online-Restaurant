@@ -15,6 +15,7 @@ export class ProductsComponent implements OnInit {
 
   public categories: any;
   public foodList: any;
+  public activeCategory: number = 0
 
   showCategories() {
     this.service.getCategories().subscribe((items) => {
@@ -25,6 +26,22 @@ export class ProductsComponent implements OnInit {
   showAllProducts() {
     this.service.getAllProducts().subscribe((data) => {
       this.foodList = data;
+      this.activeCategory = 0
     });
+  }
+
+  showProductsByCategory(itemID: number) {
+    this.service.getProductsByCategory(itemID).subscribe((data:any) => {
+        this.foodList = data.products
+        this.activeCategory = itemID
+    })
+  }
+
+  getFilteredData(filterData: any) {
+    this.service.filterProducts(filterData.vegeterian, filterData.nuts, filterData.spiciness).subscribe(data => {
+      this.foodList = data
+      
+    })
+    
   }
 }
