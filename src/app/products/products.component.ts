@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
 import { Router } from '@angular/router';
+import { ToolsService } from '../tools.service';
 
 @Component({
   selector: 'app-products',
@@ -9,10 +10,11 @@ import { Router } from '@angular/router';
 })
 export class ProductsComponent implements OnInit {
 
-  constructor(private service: ApiService, public route: Router) {}
+  constructor(private service: ApiService, public route: Router, public tools: ToolsService) {}
   ngOnInit(): void {
     this.showCategories();
-    this.showAllProducts()
+    this.showAllProducts();
+    this.getCartNum()
   }
 
   public categories: any;
@@ -21,6 +23,7 @@ export class ProductsComponent implements OnInit {
   public isPopuped: boolean = false
   public itemQuantity: string = "1";
   public dataToPost:any;
+  public cartNum: any
 
   showCategories() {
     this.service.getCategories().subscribe((items) => {
@@ -58,6 +61,13 @@ export class ProductsComponent implements OnInit {
     
   }
 
+  getCartNum() {
+    this.service.getCartItems().subscribe(num => {
+      this.cartNum = num
+      this.tools.cartItemNumber.next(this.cartNum.length)
+    })
+  }
+
   addToCart(){
     this.service.addToCart({
       "quantity": this.itemQuantity,
@@ -70,7 +80,7 @@ export class ProductsComponent implements OnInit {
       },
       error: () => alert("Try again...")
     })
-    
+    this.getCartNum()
     
   }
 

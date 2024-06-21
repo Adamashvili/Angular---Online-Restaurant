@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from '../api.service';
+import { ToolsService } from '../tools.service';
 
 @Component({
   selector: 'app-food-details',
@@ -8,13 +9,15 @@ import { ApiService } from '../api.service';
   styleUrl: './food-details.component.css',
 })
 export class FoodDetailsComponent implements OnInit {
-  constructor(public actRoute: ActivatedRoute, public service: ApiService) {}
+  constructor(public actRoute: ActivatedRoute, public service: ApiService, public toolsServ: ToolsService) {}
   ngOnInit(): void {
     this.getQuery()
+    this.getCartList()
   }
 
   public foodDetails: any;
   public itemQuantity: string = "1"
+  public cartList: any;
 
   getQuery() {
     this.actRoute.queryParams.subscribe((data) => {
@@ -30,10 +33,21 @@ export class FoodDetailsComponent implements OnInit {
     }).subscribe({
       next: () => {
         alert("Product added to cart successfully")
+        this.getCartList()
       
       },
       error: () => alert("Try again...")
     })
   } 
 
+  getCartList() {
+    this.service.getCartItems().subscribe((data) => {
+      this.cartList = data;
+     
+      this.toolsServ.cartItemNumber.next(this.cartList.length)
+
+    
+    });
+
+}
 }

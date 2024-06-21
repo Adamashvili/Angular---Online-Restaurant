@@ -4,7 +4,7 @@
     </div>
 </section>
 
-<section class="container">
+<section *ngIf="cartList" class="container">
     <h1>Cart</h1>
     <table *ngIf="cartList.length > 0">
         <tr>

@@ -7,6 +7,7 @@ import {
 } from '@angular/core';
 import { ApiService } from '../api.service';
 import { Subject } from 'rxjs';
+import { ToolsService } from '../tools.service';
 
 @Component({
   selector: 'app-cart',
@@ -14,11 +15,11 @@ import { Subject } from 'rxjs';
   styleUrl: './cart.component.css',
 })
 export class CartComponent implements OnInit {
-  constructor(private service: ApiService) {}
+  constructor(private service: ApiService, public toolsServ: ToolsService) {}
 
   ngOnInit(): void {
     this.getCartList();
-    this.totalPriceFn();
+    
   }
 
   public cartList: any;
@@ -27,6 +28,10 @@ export class CartComponent implements OnInit {
   getCartList() {
     this.service.getCartItems().subscribe((data) => {
       this.cartList = data;
+     this.totalPriceFn(data)
+      this.toolsServ.cartItemNumber.next(this.cartList.length)
+
+    
     });
   }
 
@@ -38,8 +43,10 @@ export class CartComponent implements OnInit {
         price: item.product.price,
         productId: item.product.id,
       })
-      .subscribe();
-    this.totalPriceFn();
+      .subscribe(() => {
+        this.getCartList()
+      });
+  
   }
 
   decreaseItem(item: any) {
@@ -51,8 +58,10 @@ export class CartComponent implements OnInit {
           price: item.product.price,
           productId: item.product.id,
         })
-        .subscribe();
-      this.totalPriceFn();
+        .subscribe(() => {
+          this.getCartList()
+        });
+     
     }
   }
 
@@ -61,29 +70,30 @@ export class CartComponent implements OnInit {
       next: () => {
         alert(`${name} removed from cart successfully`);
         this.getCartList();
-        this.totalPriceFn();
+       
       },
       error: (err) => alert(err),
     });
   }
 
-  totalPriceFn() {
-    this.service.getCartItems().subscribe((data) => {
-      this.cartList = data;
+  totalPriceFn(listNum: any) {
+   if(listNum) {
+    let prices = listNum.map((item: any) => {
+      return item.product.price * item.quantity;
+    });
 
-      let prices = this.cartList.map((item: any) => {
-        return item.product.price * item.quantity;
+    if (prices.length > 0) {
+      let total = prices.reduce((prev: number, crnt: number) => {
+        return prev + crnt;
       });
 
-      if (prices.length > 0) {
-        let total = prices.reduce((prev: number, crnt: number) => {
-          return prev + crnt;
-        });
+      this.totalPrice = total;
+    } else {
+      this.totalPrice = 0;
+    }
+  ;
+}
+   }
 
-        this.totalPrice = total;
-      } else {
-        this.totalPrice = 0;
-      }
-    });
-  }
+      
 }
