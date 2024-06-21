@@ -21,7 +21,7 @@ export class ApiService {
   }
 
   deleteCartItem(id: number) {
-    return this.http.delete(`https://restaurant.stepprojects.ge/api/Baskets/DeleteProduct/${id}`)
+    return this.http.delete(`https://restaurant.stepprojects.ge/api/Baskets/DeleteProduct/${id}`, {responseType: "text"})
   }
 
   getCategories() {

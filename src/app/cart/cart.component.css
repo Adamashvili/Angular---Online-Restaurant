@@ -1,28 +1,144 @@
 .banner {
-    height: 400px;
-    background-image: url("../../assets/banner.jpg");
-    background-size: cover;
-    background-attachment: fixed;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .banner h1 {
-    color: white;
-    font-family: "Playwrite FR Trad", cursive;
-    font-optical-sizing: auto;
-    font-weight: bold;
-    font-style: normal;
-    font-size: 28px;
-  }
+  height: 400px;
+  background-image: url("../../assets/banner.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-  section h1 {
-    text-align: center;
-    margin: 30px auto;
-  }
+.banner h1 {
+  color: white;
+  font-family: "Playwrite FR Trad", cursive;
+  font-optical-sizing: auto;
+  font-weight: bold;
+  font-style: normal;
+  font-size: 28px;
+}
 
-  table img {
-    width: 50px;
-  }
+section h1 {
+  text-align: center;
+  margin: 30px auto;
+  text-align: center;
+  margin: 20px 0;
+  font-family: "Playwrite US Modern", cursive;
+  font-optical-sizing: auto;
+  font-weight: bold;
+  font-style: normal;
+}
+
+table {
+  border-radius: 7px;
+  overflow: hidden;
+  font-family: "Playwrite US Modern", cursive;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  transition: 0.3s;
+}
+
+table,
+tr {
+  /* border: 1px solid #190B02; */
+  height: 70px;
+  box-shadow: 0 0 3px 1px #190b02;
+  border-collapse: collapse;
+  width: 100%;
+  text-align: center;
+}
+
+tr:nth-child(1) {
+  height: 40px;
+  background-color: #190b02;
+  color: #fda262;
+}
+td:nth-child(2) {
+  text-align: start;
+}
+
+table img {
+  width: 50px;
+}
+
+.increase,
+.decrease {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  background-color: #190b02;
+  color: #fda262;
+  font-size: 17px;
+ 
   
+}
+
+.increase:hover,
+.decrease:hover {
+  color: white;
+  box-shadow: 0 0 10px 1px #190b02;
+}
+
+table .removeBtn {
+  padding: 4px 12px;
+  background-color: #9a1206;
+  box-shadow: 0 0 4px 1px #9a1206;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s all ease;
+  font-family: "Playwrite FR Trad", cursive;
+  
+  font-weight: bold;
+  font-style: normal;
+  
+}
+
+table .removeBtn:hover {
+  background-color: red;
+  box-shadow: 0 0 9px 1px red;
+}
+
+table tr:last-child {
+  position: relative;
+}
+
+.total {
+  position: absolute;
+  background-color: #190b02;
+  color: white;
+  right: 0;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-inline: 60px;
+  border-bottom-left-radius: 40px;
+}
+
+.emptyCart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.emptyCart button {
+  padding: 10px 10px;
+  cursor: pointer;
+  background-color: #63391f;
+  color: white;
+  border: none;
+  border-radius: 7px;
+  transition: 0.3s;
+  font-family: "Fresca", sans-serif;
+font-weight: 400;
+font-style: normal;
+}
+
+.emptyCart button:hover {
+  background-color: #b16d43;
+  box-shadow: 0 0 10px 1px #b16d43;
+}

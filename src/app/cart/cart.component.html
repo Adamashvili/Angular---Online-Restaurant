@@ -6,19 +6,32 @@
 
 <section class="container">
     <h1>Cart</h1>
-    <table>
+    <table *ngIf="cartList.length > 0">
         <tr>
             <th colspan="2">Product</th>
             <th>Quantity</th>
             <th>Price</th>
             <th>Total</th>
+            <th>Action</th>
         </tr>
         <tr *ngFor="let items of cartList">
             <td><img [src]="items.product.image" alt=""></td>
             <td>{{items.product.name}}</td>
-            <td>{{items.quantity}}</td>
+            <td ><button (click)="increaseItem(items)" class="increase">+</button> {{items.quantity}} <button (click)="decreaseItem(items)" class="decrease">-</button></td>
             <td>{{items.product.price | currency}}</td>
             <td>{{(items.product.price * items.quantity) | currency}}</td>
+            <td><button (click)="deleteItem(items.product.id, items.product.name)" class="removeBtn">Remove</button></td>
+        </tr>
+        <tr>
+            <td class="total" colspan="6">Total Price: {{totalPrice | currency}}</td>
         </tr>
     </table>
+
+    <section class="container emptyCart" *ngIf="cartList.length == 0 ">
+        <img src="../../assets/emptycart.png" alt="">
+        <h1>Your Cart is empty...</h1>
+        <button>Go To Homepage</button>
+    </section>
+
+
 </section>
