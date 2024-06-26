@@ -17,7 +17,6 @@ export class LoadingComponent implements OnInit {
   loadingInfo() {
     this.tools.loadingSub.subscribe(info => {
       this.isLoading = info
-      console.log(this.isLoading);
       
     })
   }

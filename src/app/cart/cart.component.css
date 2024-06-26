@@ -36,11 +36,11 @@ table {
   font-weight: 600;
   font-style: normal;
   transition: 0.3s;
+  width: 100%;
 }
 
 table,
 tr {
-  /* border: 1px solid #190B02; */
   height: 70px;
   box-shadow: 0 0 3px 1px #190b02;
   border-collapse: collapse;
@@ -149,4 +149,67 @@ button:disabled {
 
 button:disabled:hover {
   box-shadow: none;
+}
+
+
+
+@media screen and (max-width: 998px) {
+  .banner h1 {
+    font-size: 16px;
+  }
+  
+}
+
+@media screen and (max-width: 768px) {
+  .banner {
+    height: 250px;
+  }
+
+  table  {
+   width: 90%;
+   margin: 0 auto;
+   font-size: 13px;
+  }
+
+  table tr {
+    height: 50px;
+  }
+  
+}
+
+@media screen and (max-width: 600px) {
+  table .removeBtn {
+    padding: 2px 7px;
+    font-size: 10px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .banner h1 {
+    font-size: 12px;
+    width: 80%;
+    margin: 0 auto;
+  }
+  
+  table {
+    font-size: 7px;
+  }
+
+  table tr {
+    height: 30px;
+  }
+
+  table tr td:nth-child(4),
+  table tr th:nth-child(3) {
+    display: none;
+  }
+
+  
+
+   
+
+  
+
+  
+  
 }

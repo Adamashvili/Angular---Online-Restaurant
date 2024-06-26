@@ -1,5 +1,7 @@
 .filterCard {
     position: relative;
+    position: sticky;
+    top: 100px;
     width: 250px;
     background-color: #dbcccc;
     display: flex;

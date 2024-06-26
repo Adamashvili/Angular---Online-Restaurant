@@ -15,6 +15,7 @@ import { FoodDetailsComponent } from './food-details/food-details.component';
 import { FooterComponent } from './footer/footer.component';
 import { LoadingComponent } from './loading/loading.component';
 import { InterService } from './inter.service';
+import { MiniCategoriesComponent } from './mini-categories/mini-categories.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { InterService } from './inter.service';
     FoodDetailsComponent,
     FooterComponent,
     LoadingComponent,
+    MiniCategoriesComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [

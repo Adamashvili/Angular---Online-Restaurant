@@ -6,7 +6,7 @@ import {
   SimpleChanges,
 } from '@angular/core';
 import { ApiService } from '../api.service';
-import { Subject } from 'rxjs';
+import { Subject, finalize } from 'rxjs';
 import { ToolsService } from '../tools.service';
 
 @Component({
@@ -44,7 +44,7 @@ export class CartComponent implements OnInit {
         productId: item.product.id,
       })
       .subscribe(() => {
-        
+        this.totalPriceFn(this.cartList)
       });
   
   }
@@ -59,7 +59,7 @@ export class CartComponent implements OnInit {
           productId: item.product.id,
         })
         .subscribe(() => {
-        
+          this.totalPriceFn(this.cartList)
         });
      
     }

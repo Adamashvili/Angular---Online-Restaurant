@@ -1,11 +1,14 @@
 <article class="container">
-  <h1>Categories</h1>
+  <h1>Categories <i (click)="miniCategoryToggle()" class="fa-solid fa-bars"></i></h1>
   <article>
     <ul>
       <li [ngClass]="this.activeCategory == 0 ? 'active' : ''" (click)="showAllProducts()" >All</li>
       <li [ngClass]="this.activeCategory == items.id ? 'active' : ''" (click)="showProductsByCategory(items.id)" *ngFor="let items of categories">{{ items.name }}</li>
     </ul>
   </article>
+  <div [ngClass]="isMiniCategoryShown ? '' : 'mininavHide'">
+    <app-mini-categories (dataTransfer)="showProductsByMINI($event)"></app-mini-categories>
+  </div>
 </article>
 
 <section class="container mainArea">

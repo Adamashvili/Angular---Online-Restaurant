@@ -1,10 +1,19 @@
 article h1 {
-  text-align: center;
+ 
   margin: 20px 0;
   font-family: "Playwrite US Modern", cursive;
   font-optical-sizing: auto;
   font-weight: bold;
   font-style: normal;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+article h1 i {
+  cursor: pointer;
+  display: none;
 }
 
 article ul {
@@ -14,6 +23,7 @@ article ul {
   gap: 30px;
   padding-bottom: 10px;
   border-bottom: 2px solid #63391f;
+  transition: 0.5s;
 }
 
 ul li {
@@ -41,7 +51,8 @@ ul li:hover {
 .mainArea {
   margin: 20px auto;
   display: flex;
-  gap: 75px;
+  gap: 30px;
+  padding-inline: 40px;
 }
 
 .right {
@@ -236,3 +247,42 @@ ul li:hover {
   background-color: #b16d43;
   box-shadow: 0 0 10px 1px #b16d43;
 }
+
+.mininavHide{
+  opacity: 0;
+  visibility: hidden;
+  
+}
+
+
+@media screen and (max-width: 1250px) {
+  ul li {
+    font-size: 10px;
+  }
+  
+}
+
+@media screen and (max-width: 998px) {
+  article h1 i {
+    display: block;
+  }
+
+  article ul {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 768px) {
+ .mainArea {
+  flex-direction: column;
+  align-items: center;
+ }
+  
+}
+
+@media screen and (max-width: 500px) {
+  .popup {
+    width: 80vw;
+  } 
+   
+ }

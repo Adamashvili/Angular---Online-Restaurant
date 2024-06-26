@@ -1,5 +1,6 @@
 .details {
-    height: 100vh;
+    padding-top: 80px;
+    min-height: 100vh;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -11,9 +12,9 @@
 }
 
 .left button {
-    position: absolute;
-    top: 0;
-    left: 0;
+    position: fixed;
+    top: 100px;
+    left: 50px;
     padding: 8px 12px;
     background-color: #63391f;
     color: white;
@@ -106,4 +107,9 @@
   .addcart button:hover {
       background-color: #b16d43;
       box-shadow: 0 0 10px 1px #b16d43;
+  }
+
+  @media screen and (max-width: 1100px) {
+    
+    
   }

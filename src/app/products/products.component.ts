@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
 import { Router } from '@angular/router';
 import { ToolsService } from '../tools.service';
+import { Subject, finalize } from 'rxjs';
 
 @Component({
   selector: 'app-products',
@@ -24,10 +25,23 @@ export class ProductsComponent implements OnInit {
   public itemQuantity: string = "1";
   public dataToPost:any;
   public cartNum: any
+  public isMiniCategoryShown = false
+
+  miniCategoryToggle () {
+    this.tools.openMiniNav()
+    this.tools.miniNavToggle.subscribe((toggle) => {
+      this.isMiniCategoryShown = toggle
+      
+    })
+  }
+
+
 
   showCategories() {
     this.service.getCategories().subscribe((items) => {
       this.categories = items;
+      this.tools.categoriesSubj.next(items)
+      
     });
   }
 
@@ -43,6 +57,12 @@ export class ProductsComponent implements OnInit {
         this.foodList = data.products
         this.activeCategory = itemID
     })
+  }
+
+  showProductsByMINI(list:any) {
+
+    this.foodList = list.products
+    
   }
 
   getFilteredData(filterData: any) {

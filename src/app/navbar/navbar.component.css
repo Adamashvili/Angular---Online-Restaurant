@@ -91,3 +91,15 @@ span {
   right: -14px;
   z-index: -1;
 }
+
+
+@media screen and (max-width: 768px){
+  nav {
+    height: 60px;
+    
+  }
+  nav h1, ul li {
+    font-size: 16px;
+  }
+  
+}
