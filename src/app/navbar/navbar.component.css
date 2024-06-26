@@ -18,6 +18,9 @@ nav h1 {
   font-style: normal;
   cursor: pointer;
   transition: 0.3s all ease;
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
 nav h1:hover {

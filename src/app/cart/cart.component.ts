@@ -44,7 +44,7 @@ export class CartComponent implements OnInit {
         productId: item.product.id,
       })
       .subscribe(() => {
-        this.getCartList()
+        
       });
   
   }
@@ -59,7 +59,7 @@ export class CartComponent implements OnInit {
           productId: item.product.id,
         })
         .subscribe(() => {
-          this.getCartList()
+        
         });
      
     }

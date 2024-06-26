@@ -77,10 +77,11 @@ export class ProductsComponent implements OnInit {
       next: () => {
         alert("Product added to cart successfully")
         this.isPopuped = false;
+        this.getCartNum()
       },
       error: () => alert("Try again...")
     })
-    this.getCartNum()
+    
     
   }
 

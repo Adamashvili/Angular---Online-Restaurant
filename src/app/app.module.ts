@@ -6,12 +6,15 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 import { CartComponent } from './cart/cart.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ProductsComponent } from './products/products.component';
 import { DirectDirective } from './direct.directive';
 import { FilterComponent } from './filter/filter.component';
 import { FormsModule } from '@angular/forms';
 import { FoodDetailsComponent } from './food-details/food-details.component';
+import { FooterComponent } from './footer/footer.component';
+import { LoadingComponent } from './loading/loading.component';
+import { InterService } from './inter.service';
 
 @NgModule({
   declarations: [
@@ -22,15 +25,18 @@ import { FoodDetailsComponent } from './food-details/food-details.component';
     ProductsComponent,
     DirectDirective,
     FilterComponent,
-    FoodDetailsComponent
+    FoodDetailsComponent,
+    FooterComponent,
+    LoadingComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    FormsModule
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: InterService,
+      multi: true,
+    },
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
